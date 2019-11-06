@@ -48,6 +48,7 @@ namespace FourCharacterPhrase.Blazor.Pages
 
             if (Bord.IsCompleted() == true)
             {
+                timer.Elapsed -= OnTimedEvent;
                 Message = "Completed";
             }
 

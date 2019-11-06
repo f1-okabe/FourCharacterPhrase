@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FourCharacterPhrase.Blazor", "FourCharacterPhrase.Blazor\FourCharacterPhrase.Blazor.csproj", "{5104874F-4626-454E-9619-A19CB9F6E801}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FourCharacterPhrase.Shared", "FourCharacterPhrase.Shared\FourCharacterPhrase.Shared.csproj", "{C8658A1B-CFA5-41FD-9870-F61420A8D1DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5104874F-4626-454E-9619-A19CB9F6E801}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5104874F-4626-454E-9619-A19CB9F6E801}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5104874F-4626-454E-9619-A19CB9F6E801}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5104874F-4626-454E-9619-A19CB9F6E801}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8658A1B-CFA5-41FD-9870-F61420A8D1DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8658A1B-CFA5-41FD-9870-F61420A8D1DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8658A1B-CFA5-41FD-9870-F61420A8D1DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8658A1B-CFA5-41FD-9870-F61420A8D1DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29FD107E-24D0-405C-91B3-0E447D0E90D0}
+	EndGlobalSection
+EndGlobal

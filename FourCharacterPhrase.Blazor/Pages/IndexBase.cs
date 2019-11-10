@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Timers;
+using static System.Net.WebRequestMethods;
 
 namespace FourCharacterPhrase.Blazor.Pages
 {
@@ -60,13 +62,13 @@ namespace FourCharacterPhrase.Blazor.Pages
             switch (cellStatus)
             {
                 case CellStatus.None:
-                    return "btn btn-info";
+                    return "btn-lg btn-info";
                 case CellStatus.Selecting:
-                    return "btn btn-primary";
+                    return "btn-lg btn-primary";
                 case CellStatus.Completed:
-                    return "btn btn-success";
+                    return "btn-lg btn-success";
                 default:
-                    return "btn btn-info";
+                    return "btn-lg btn-info";
             }
             
         }

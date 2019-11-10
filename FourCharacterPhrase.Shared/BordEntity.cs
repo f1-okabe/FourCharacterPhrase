@@ -1,7 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace FourCharacterPhrase.Shared
 {
@@ -12,6 +17,8 @@ namespace FourCharacterPhrase.Shared
         public List<WordEntity> Words { get; set; } = new List<WordEntity>();
 
         private DateTime startTime;
+
+        protected static HttpClient Http = new HttpClient();
 
 
         public void SetData()
@@ -61,7 +68,7 @@ namespace FourCharacterPhrase.Shared
             return r.Next(maxNumber);
         }
 
-        public void Click(CellEntity cell)
+        public async void Click(CellEntity cell)
         {
             if (IsFourSelecting() == true && cell.Status != CellStatus.Selecting) return;
 
@@ -72,6 +79,13 @@ namespace FourCharacterPhrase.Shared
             if (IsCorrectAnswer() == false) return;
 
             ChangeCellsStatusSelectingToCompleted();
+
+            Console.WriteLine("PostRequest:開始");
+
+            var answerNumber = new AnswerNumberEntity();
+            var a = await PostRequest("AnswerNumber", answerNumber);
+
+            Console.WriteLine(JsonConvert.SerializeObject(a));
         }
 
         public int GetElapsedTime()
@@ -122,6 +136,36 @@ namespace FourCharacterPhrase.Shared
         private void ChangeCellsStatusSelectingToCompleted()
         {
             Cells.Where(m => m.Status == CellStatus.Selecting).ToList().ForEach(m => m.Status = CellStatus.Completed);
+        }
+
+        public async Task<object> PostRequest<T>(string serviceName, T sendObject)
+        {
+            try
+            {
+                string jsonString = JsonConvert.SerializeObject(sendObject);
+                var requestUri = "https://localhost:44370/" + serviceName;
+                var requestMessage = new HttpRequestMessage()
+                {
+                    Method = new HttpMethod("POST"),
+                    RequestUri = new Uri(requestUri),
+                    Content = new StringContent(jsonString, Encoding.UTF8, "application/json")
+                };
+
+                Console.WriteLine("Http.SendAsync");
+                Console.WriteLine(requestUri);
+                Console.WriteLine(jsonString);
+                HttpResponseMessage response = await Http.SendAsync(requestMessage);
+                response.EnsureSuccessStatusCode(); //will throw an exception if not successful
+
+                Console.WriteLine("response.Content.ReadAsStringAsync()");
+                var responseContent = await response.Content.ReadAsStringAsync();
+                return JObject.Parse(responseContent);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return "";
+            }
         }
     }
 }

@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FourCharacterPhrase.Blazor"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FourCharacterPhrase.Shared", "FourCharacterPhrase.Shared\FourCharacterPhrase.Shared.csproj", "{C8658A1B-CFA5-41FD-9870-F61420A8D1DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FourCharacterPhrase.WPF", "FourCharacterPhrase.WPF\FourCharacterPhrase.WPF.csproj", "{8605D09E-FB90-41D7-8B40-E9E11ED7CBB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FourCharacterPhrase.WPF", "FourCharacterPhrase.WPF\FourCharacterPhrase.WPF.csproj", "{8605D09E-FB90-41D7-8B40-E9E11ED7CBB9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtensionsLibrary", "ExtensionsLibrary\ExtensionsLibrary.csproj", "{21497CAF-BE09-4DD8-A549-B62EA9C993C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FourCharacterPhrase.Server", "FourCharacterPhrase.Server\FourCharacterPhrase.Server.csproj", "{2EA0066F-A90F-4482-B32F-028EEA38F420}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{21497CAF-BE09-4DD8-A549-B62EA9C993C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21497CAF-BE09-4DD8-A549-B62EA9C993C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21497CAF-BE09-4DD8-A549-B62EA9C993C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EA0066F-A90F-4482-B32F-028EEA38F420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EA0066F-A90F-4482-B32F-028EEA38F420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EA0066F-A90F-4482-B32F-028EEA38F420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EA0066F-A90F-4482-B32F-028EEA38F420}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

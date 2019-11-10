@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FourCharacterPhrase.Server.Dao;
 using FourCharacterPhrase.Shared;
+//using FourCharacterPhrase.Shared.Dao;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -15,41 +18,18 @@ namespace FourCharacterPhrase.Server.Controllers
     {
         // GET: api/AnswerNumber
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<AnswerNumberEntity> Get()
         {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET: api/AnswerNumber/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
+            var daoD_AnswerNumber = new DaoD_AnswerNumber();
+            return daoD_AnswerNumber.GetAnswerNumberList();
         }
 
         //POST: api/AnswerNumber
         [HttpPost]
         public void Post([FromBody] AnswerNumberEntity value)
         {
-            Console.WriteLine(JsonConvert.SerializeObject(value));
-        }
-
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //    Console.WriteLine(value);
-        //}
-
-        // PUT: api/AnswerNumber/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            var daoD_AnswerNumber = new DaoD_AnswerNumber();
+            daoD_AnswerNumber.Save(value);
         }
     }
 }

@@ -6,4 +6,11 @@
         Selecting,
         Completed
     }
+
+    public enum EnmEditMode
+    {
+        Insert,
+        Update,
+        Delete
+    }
 }

@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using FourCharacterPhrase.Server.Dao;
 using FourCharacterPhrase.Shared;
-//using FourCharacterPhrase.Shared.Dao;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 
 namespace FourCharacterPhrase.Server.Controllers
 {

@@ -1,0 +1,29 @@
+﻿@page "/Ranking"
+@inherits RankingBase
+
+<h1>Ranking</h1>
+
+@if (AnswerNumberEntitys == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>名前</th>
+                <th>回答数</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var answerNumberEntity in AnswerNumberEntitys)
+            {
+                <tr>
+                    <td>@answerNumberEntity.Name</td>
+                    <td>@answerNumberEntity.Count</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

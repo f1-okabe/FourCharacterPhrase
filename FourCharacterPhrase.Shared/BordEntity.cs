@@ -16,6 +16,8 @@ namespace FourCharacterPhrase.Shared
 
         public List<WordEntity> Words { get; set; } = new List<WordEntity>();
 
+        public AnswerNumberEntity AnswerNumber { get; set; } = new AnswerNumberEntity();
+
         private DateTime startTime;
 
         public void SetData()
@@ -24,6 +26,7 @@ namespace FourCharacterPhrase.Shared
             SetCells();
 
             startTime = DateTime.Now;
+            AnswerNumber.Count = 0;
         }
 
         private void SetWords()
@@ -67,10 +70,6 @@ namespace FourCharacterPhrase.Shared
 
         public async void Click(CellEntity cell)
         {
-            var answerNumber = new AnswerNumberEntity() { Name = "TEST", Count = 3 };
-            var a = await WebApiService.PostRequest("AnswerNumber", answerNumber);
-            Console.WriteLine(JsonConvert.SerializeObject(a));
-
             if (IsFourSelecting() == true && cell.Status != CellStatus.Selecting) return;
 
             cell.ChangeStatus();
@@ -82,6 +81,10 @@ namespace FourCharacterPhrase.Shared
             ChangeCellsStatusSelectingToCompleted();
 
             Console.WriteLine("PostRequest:開始");
+
+            AnswerNumber.Count += 1;
+            var a = await WebApiService.PostRequest("AnswerNumber", AnswerNumber);
+            Console.WriteLine(JsonConvert.SerializeObject(a));
         }
 
         public int GetElapsedTime()

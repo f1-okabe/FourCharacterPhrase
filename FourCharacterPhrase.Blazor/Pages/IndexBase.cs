@@ -1,16 +1,11 @@
 ﻿using FourCharacterPhrase.Shared;
 using Microsoft.AspNetCore.Components;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
 using System.Timers;
-using static System.Net.WebRequestMethods;
 
 namespace FourCharacterPhrase.Blazor.Pages
 {
-    public class IndexBase :  ComponentBase
+    public class IndexBase : ComponentBase
     {
         public BordEntity Bord { get; set; } = new BordEntity();
 
@@ -50,7 +45,7 @@ namespace FourCharacterPhrase.Blazor.Pages
 
             if (Bord.IsCompleted() == true)
             {
-                timer.Elapsed -= OnTimedEvent;
+                //timer.Elapsed -= OnTimedEvent;
                 Message = "Completed";
             }
 

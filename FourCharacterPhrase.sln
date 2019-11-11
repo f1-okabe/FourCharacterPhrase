@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FourCharacterPhrase.WPF", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtensionsLibrary", "ExtensionsLibrary\ExtensionsLibrary.csproj", "{21497CAF-BE09-4DD8-A549-B62EA9C993C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FourCharacterPhrase.Server", "FourCharacterPhrase.Server\FourCharacterPhrase.Server.csproj", "{2EA0066F-A90F-4482-B32F-028EEA38F420}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FourCharacterPhrase.Server", "FourCharacterPhrase.Server\FourCharacterPhrase.Server.csproj", "{2EA0066F-A90F-4482-B32F-028EEA38F420}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

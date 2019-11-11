@@ -1,9 +1,7 @@
 ﻿@page "/"
 @inherits IndexBase
 
-<button  class="btn btn-danger" @onclick="() => StartGame()">スタート</button>
-<br />
-<br />
+
 
 @if (Bord == null)
 {
@@ -11,6 +9,11 @@
 }
 else
 {
+    <input type="text" id="italicsCheck" @bind=Bord.AnswerNumber.Name />
+    <button class="btn btn-danger" @onclick="() => StartGame()">スタート</button>
+    <br />
+    <br />
+
     <table class="table">
         <tbody>
             @for (int i = 0; i <= 5; i++)

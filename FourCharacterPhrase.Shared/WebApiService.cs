@@ -10,14 +10,14 @@ namespace FourCharacterPhrase.Shared
 {
     public static class WebApiService
     {
-        public static HttpClient Http = new HttpClient();
+        private static HttpClient Http = new HttpClient();
 
         public static async Task<object> PostRequest<T>(string serviceName, T sendObject)
         {
             try
             {
                 string jsonString = JsonConvert.SerializeObject(sendObject);
-                var requestUri = "https://localhost:44303/" + serviceName;
+                var requestUri = "https://localhost:44370/" + serviceName;
                 var requestMessage = new HttpRequestMessage()
                 {
                     Method = new HttpMethod("POST"),
@@ -40,6 +40,17 @@ namespace FourCharacterPhrase.Shared
                 Console.WriteLine(e.Message);
                 return "";
             }
+        }
+
+        public static async Task<T> GetRequest<T,U>(string serviceName, U sendObject)
+        {
+            string jsonString = JsonConvert.SerializeObject(sendObject);
+            var requestUri = $"https://localhost:44370/{serviceName}?para={jsonString}";
+
+            var response = await Http.GetAsync(requestUri);
+            response.EnsureSuccessStatusCode(); //will throw an exception if not successful
+            var responseContent = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<T>(responseContent);
         }
     }
 }

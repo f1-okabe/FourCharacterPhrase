@@ -32,7 +32,7 @@ namespace FourCharacterPhrase.Server
                 options.AddPolicy(MyAllowSpecificOrigins,
                 builder =>
                 {
-                    builder.WithOrigins("*","http://localhost:59066")
+                    builder.WithOrigins("*","http://localhost:59066", "http://localhost:55771")
                            .AllowAnyOrigin()
                            .AllowAnyMethod()
                            .AllowAnyHeader();

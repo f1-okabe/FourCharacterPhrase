@@ -67,6 +67,10 @@ namespace FourCharacterPhrase.Shared
 
         public async void Click(CellEntity cell)
         {
+            var answerNumber = new AnswerNumberEntity() { Name = "TEST", Count = 3 };
+            var a = await WebApiService.PostRequest("AnswerNumber", answerNumber);
+            Console.WriteLine(JsonConvert.SerializeObject(a));
+
             if (IsFourSelecting() == true && cell.Status != CellStatus.Selecting) return;
 
             cell.ChangeStatus();
@@ -78,11 +82,6 @@ namespace FourCharacterPhrase.Shared
             ChangeCellsStatusSelectingToCompleted();
 
             Console.WriteLine("PostRequest:開始");
-
-            var answerNumber = new AnswerNumberEntity() {Name = "TEST",Count = 3 };
-            var a = await WebApiService.PostRequest("AnswerNumber", answerNumber);
-
-            Console.WriteLine(JsonConvert.SerializeObject(a));
         }
 
         public int GetElapsedTime()

@@ -25,7 +25,7 @@ namespace FourCharacterPhrase.Server.Dao
             var saveBeforeData = GetAnswerNumber(data.Name);
             EnmEditMode editMode;
 
-            if (saveBeforeData != null)
+            if (saveBeforeData == null)
             {
                 editMode = EnmEditMode.Insert;
             }
@@ -34,8 +34,11 @@ namespace FourCharacterPhrase.Server.Dao
                 editMode = EnmEditMode.Update;
             }
 
-            var contexForSave = DB.CreateAppDbContextForSave();
-            contexForSave.Entry(data).State = ConvertEnmEditModeToEntityState(editMode);
+            using (AppDbContext contexForSave = DB.CreateAppDbContextForSave(true))
+            {
+                contexForSave.Entry(data).State = ConvertEnmEditModeToEntityState(editMode);
+                contexForSave.SaveChanges();
+            }
         }
     }
 }

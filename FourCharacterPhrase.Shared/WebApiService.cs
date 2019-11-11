@@ -17,7 +17,7 @@ namespace FourCharacterPhrase.Shared
             try
             {
                 string jsonString = JsonConvert.SerializeObject(sendObject);
-                var requestUri = "https://localhost:44370/" + serviceName;
+                var requestUri = "https://localhost:44303/" + serviceName;
                 var requestMessage = new HttpRequestMessage()
                 {
                     Method = new HttpMethod("POST"),

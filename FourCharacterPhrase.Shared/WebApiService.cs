@@ -17,7 +17,7 @@ namespace FourCharacterPhrase.Shared
             try
             {
                 string jsonString = JsonConvert.SerializeObject(sendObject);
-                var requestUri = "https://localhost:44370/" + serviceName;
+                var requestUri = "https://localhost:44303/" + serviceName;
                 var requestMessage = new HttpRequestMessage()
                 {
                     Method = new HttpMethod("POST"),
@@ -45,7 +45,7 @@ namespace FourCharacterPhrase.Shared
         public static async Task<T> GetRequest<T,U>(string serviceName, U sendObject)
         {
             string jsonString = JsonConvert.SerializeObject(sendObject);
-            var requestUri = $"https://localhost:44370/{serviceName}?para={jsonString}";
+            var requestUri = $"https://localhost:44303/{serviceName}?para={jsonString}";
 
             var response = await Http.GetAsync(requestUri);
             response.EnsureSuccessStatusCode(); //will throw an exception if not successful

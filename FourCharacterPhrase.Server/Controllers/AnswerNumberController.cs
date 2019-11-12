@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using FourCharacterPhrase.Server.Dao;
 using FourCharacterPhrase.Shared;
 using Microsoft.AspNetCore.Mvc;
@@ -9,15 +10,15 @@ namespace FourCharacterPhrase.Server.Controllers
     [ApiController]
     public class AnswerNumberController : ControllerBase
     {
-        // GET: api/AnswerNumber
+        // GET: AnswerNumber
         [HttpGet]
         public IEnumerable<AnswerNumberEntity> Get()
         {
             var daoD_AnswerNumber = new DaoD_AnswerNumber();
-            return daoD_AnswerNumber.GetAnswerNumberList();
+            return daoD_AnswerNumber.GetAnswerNumberList().OrderByDescending(m => m.Count).ToList();
         }
 
-        //POST: api/AnswerNumber
+        //POST: AnswerNumber
         [HttpPost]
         public void Post([FromBody] AnswerNumberEntity value)
         {

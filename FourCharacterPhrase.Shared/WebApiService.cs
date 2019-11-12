@@ -11,7 +11,7 @@ namespace FourCharacterPhrase.Shared
     public static class WebApiService
     {
         private static HttpClient Http = new HttpClient();
-        private const string baseURL = "http://localhost:60111/";
+        private const string baseURL = "https://fourcharacterphraseserver.azurewebsites.net/";
         public static async Task<object> PostRequest<T>(string serviceName, T sendObject)
         {
             try

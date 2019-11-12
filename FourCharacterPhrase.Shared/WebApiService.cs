@@ -11,13 +11,13 @@ namespace FourCharacterPhrase.Shared
     public static class WebApiService
     {
         private static HttpClient Http = new HttpClient();
-
+        private const string baseURL = "http://localhost:60111/";
         public static async Task<object> PostRequest<T>(string serviceName, T sendObject)
         {
             try
             {
                 string jsonString = JsonConvert.SerializeObject(sendObject);
-                var requestUri = "https://localhost:44303/" + serviceName;
+                var requestUri = baseURL + serviceName;
                 var requestMessage = new HttpRequestMessage()
                 {
                     Method = new HttpMethod("POST"),
@@ -45,7 +45,7 @@ namespace FourCharacterPhrase.Shared
         public static async Task<T> GetRequest<T,U>(string serviceName, U sendObject)
         {
             string jsonString = JsonConvert.SerializeObject(sendObject);
-            var requestUri = $"https://localhost:44303/{serviceName}?para={jsonString}";
+            var requestUri = $"{baseURL}{serviceName}?para={jsonString}";
 
             var response = await Http.GetAsync(requestUri);
             response.EnsureSuccessStatusCode(); //will throw an exception if not successful

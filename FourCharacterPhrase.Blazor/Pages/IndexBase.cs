@@ -22,20 +22,20 @@ namespace FourCharacterPhrase.Blazor.Pages
         {
             Bord.SetData();
 
-            SetTimmer();
+            //SetTimmer();
 
             StateHasChanged();
         }
 
-        private void SetTimmer()
-        {
-            // Create a timer with a two second interval.
-            timer = new Timer(1000);
-            // Hook up the Elapsed event for the timer. 
-            timer.Elapsed += OnTimedEvent;
-            timer.AutoReset = true;
-            timer.Enabled = true;
-        }
+        //private void SetTimmer()
+        //{
+        //    // Create a timer with a two second interval.
+        //    timer = new Timer(1000);
+        //    // Hook up the Elapsed event for the timer. 
+        //    timer.Elapsed += OnTimedEvent;
+        //    timer.AutoReset = true;
+        //    timer.Enabled = true;
+        //}
 
         protected void BordClick(CellEntity cell)
         {
@@ -68,11 +68,11 @@ namespace FourCharacterPhrase.Blazor.Pages
             
         }
 
-        private void OnTimedEvent(Object source, ElapsedEventArgs e)
-        {
-            Message = Bord.GetElapsedTime().ToString();
-            StateHasChanged();
-        }
+        //private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        //{
+        //    Message = Bord.GetElapsedTime().ToString();
+        //    StateHasChanged();
+        //}
     }
 }
 

@@ -1,7 +1,7 @@
 ﻿@page "/Ranking"
 @inherits RankingBase
 
-<h1>Ranking</h1>
+<h1>順位</h1>
 
 @if (AnswerNumberEntitys == null)
 {
@@ -14,15 +14,17 @@ else
             <tr>
                 <th>名前</th>
                 <th>回答数</th>
+                <th>時間</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var answerNumberEntity in AnswerNumberEntitys)
             {
-                <tr>
-                    <td>@answerNumberEntity.Name</td>
-                    <td>@answerNumberEntity.Count</td>
-                </tr>
+            <tr>
+                <td>@answerNumberEntity.Name</td>
+                <td>@answerNumberEntity.Count</td>
+                <td>@answerNumberEntity.ElapsedTime 秒</td>
+            </tr>
             }
         </tbody>
     </table>

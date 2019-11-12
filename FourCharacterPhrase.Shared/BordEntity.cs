@@ -83,6 +83,7 @@ namespace FourCharacterPhrase.Shared
             Console.WriteLine("PostRequest:開始");
 
             AnswerNumber.Count += 1;
+            AnswerNumber.ElapsedTime = GetElapsedTime();
             var a = await WebApiService.PostRequest("AnswerNumber", AnswerNumber);
             Console.WriteLine(JsonConvert.SerializeObject(a));
         }
@@ -113,6 +114,7 @@ namespace FourCharacterPhrase.Shared
             {
                 return true;
             }
+
             return false;
         }
 

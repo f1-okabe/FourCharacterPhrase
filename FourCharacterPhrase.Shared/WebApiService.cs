@@ -11,35 +11,25 @@ namespace FourCharacterPhrase.Shared
     public static class WebApiService
     {
         private static HttpClient Http = new HttpClient();
-        private const string baseURL = "https://fourcharacterphraseserver.azurewebsites.net/";
+        //private const string baseURL = "https://fourcharacterphraseserver.azurewebsites.net/";
+        private const string baseURL = "http://localhost:60111/";
+
         public static async Task<object> PostRequest<T>(string serviceName, T sendObject)
         {
-            try
+            string jsonString = JsonConvert.SerializeObject(sendObject);
+            var requestUri = baseURL + serviceName;
+            var requestMessage = new HttpRequestMessage()
             {
-                string jsonString = JsonConvert.SerializeObject(sendObject);
-                var requestUri = baseURL + serviceName;
-                var requestMessage = new HttpRequestMessage()
-                {
-                    Method = new HttpMethod("POST"),
-                    RequestUri = new Uri(requestUri),
-                    Content = new StringContent(jsonString, Encoding.UTF8, "application/json")
-                };
+                Method = new HttpMethod("POST"),
+                RequestUri = new Uri(requestUri),
+                Content = new StringContent(jsonString, Encoding.UTF8, "application/json")
+            };
 
-                Console.WriteLine("Http.SendAsync");
-                Console.WriteLine(requestUri);
-                Console.WriteLine(jsonString);
-                HttpResponseMessage response = await Http.SendAsync(requestMessage);
-                response.EnsureSuccessStatusCode(); //will throw an exception if not successful
+            HttpResponseMessage response = await Http.SendAsync(requestMessage);
+            response.EnsureSuccessStatusCode(); //will throw an exception if not successful
 
-                Console.WriteLine("response.Content.ReadAsStringAsync()");
-                var responseContent = await response.Content.ReadAsStringAsync();
-                return JObject.Parse(responseContent);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                return "";
-            }
+            var responseContent = await response.Content.ReadAsStringAsync();
+            return JObject.Parse(responseContent);
         }
 
         public static async Task<T> GetRequest<T,U>(string serviceName, U sendObject)
@@ -51,6 +41,24 @@ namespace FourCharacterPhrase.Shared
             response.EnsureSuccessStatusCode(); //will throw an exception if not successful
             var responseContent = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<T>(responseContent);
+        }
+
+        public static async Task<object> DeleteRequest<T>(string serviceName, T sendObject)
+        {
+            string jsonString = JsonConvert.SerializeObject(sendObject);
+            var requestUri = baseURL + serviceName;
+            var requestMessage = new HttpRequestMessage()
+            {
+                Method = new HttpMethod("DELETE"),
+                RequestUri = new Uri(requestUri),
+                Content = new StringContent(jsonString, Encoding.UTF8, "application/json")
+            };
+
+            HttpResponseMessage response = await Http.SendAsync(requestMessage);
+            response.EnsureSuccessStatusCode(); //will throw an exception if not successful
+
+            var responseContent = await response.Content.ReadAsStringAsync();
+            return JObject.Parse(responseContent);
         }
     }
 }

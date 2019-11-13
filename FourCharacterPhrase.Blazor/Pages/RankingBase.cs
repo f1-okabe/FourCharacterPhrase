@@ -19,6 +19,11 @@ namespace FourCharacterPhrase.Blazor.Pages
             SetTimmer();
         }
 
+        public async Task ResetDataAsync()
+        {
+            await WebApiService.DeleteRequest("AnswerNumber", "");
+        }
+
         private void SetTimmer()
         {
             // Create a timer with a two second interval.

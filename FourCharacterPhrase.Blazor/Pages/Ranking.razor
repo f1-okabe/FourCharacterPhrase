@@ -9,6 +9,10 @@
 }
 else
 {
+    <button class="btn btn-danger" @onclick="() => ResetDataAsync()">データリセット</button>
+    <br />
+    <br />
+
     <table class="table">
         <thead>
             <tr>
@@ -20,11 +24,11 @@ else
         <tbody>
             @foreach (var answerNumberEntity in AnswerNumberEntitys)
             {
-            <tr>
-                <td>@answerNumberEntity.Name</td>
-                <td>@answerNumberEntity.Count</td>
-                <td>@answerNumberEntity.ElapsedTime 秒</td>
-            </tr>
+                <tr>
+                    <td>@answerNumberEntity.Name</td>
+                    <td>@answerNumberEntity.Count</td>
+                    <td>@answerNumberEntity.ElapsedTime 秒</td>
+                </tr>
             }
         </tbody>
     </table>

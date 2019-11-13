@@ -40,5 +40,20 @@ namespace FourCharacterPhrase.Server.Dao
                 contexForSave.SaveChanges();
             }
         }
+
+        public void Delete()
+        {
+            var answerNumberList = GetAnswerNumberList();
+
+            using (AppDbContext contexForSave = DB.CreateAppDbContextForSave(true))
+            {
+                foreach (var data in answerNumberList)
+                {
+                    contexForSave.Entry(data).State = ConvertEnmEditModeToEntityState(EnmEditMode.Delete);
+                }
+
+                contexForSave.SaveChanges();
+            } 
+        }
     }
 }

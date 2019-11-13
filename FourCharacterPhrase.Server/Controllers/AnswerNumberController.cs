@@ -25,5 +25,12 @@ namespace FourCharacterPhrase.Server.Controllers
             var daoD_AnswerNumber = new DaoD_AnswerNumber();
             daoD_AnswerNumber.Save(value);
         }
+
+        [HttpDelete]
+        public void Delete()
+        {
+            var daoD_AnswerNumber = new DaoD_AnswerNumber();
+            daoD_AnswerNumber.Delete();
+        }
     }
 }

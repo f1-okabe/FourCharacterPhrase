@@ -11,7 +11,8 @@ namespace FourCharacterPhrase.Server.Framework
 {
     public class DaoBase
     {
-        protected AppDbContext context = DB.CreateAppDbContext();
+        //protected AppDbContext context = DB.CreateAppDbContext();
+        protected AppDbContext context = new AppDbContext();
 
         protected EntityState ConvertEnmEditModeToEntityState(EnmEditMode editMode)
         {

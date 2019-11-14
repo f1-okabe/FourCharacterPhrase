@@ -15,7 +15,7 @@ namespace FourCharacterPhrase.Server.Controllers
         public IEnumerable<AnswerNumberEntity> Get()
         {
             var daoD_AnswerNumber = new DaoD_AnswerNumber();
-            return daoD_AnswerNumber.GetAnswerNumberList().OrderByDescending(m => m.Count).ToList();
+            return daoD_AnswerNumber.GetAnswerNumberList().OrderByDescending(m => m.Count).ThenBy(m => m.ElapsedTime).ToList();
         }
 
         //POST: AnswerNumber

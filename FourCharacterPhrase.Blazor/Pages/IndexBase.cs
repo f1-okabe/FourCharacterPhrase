@@ -14,12 +14,12 @@ namespace FourCharacterPhrase.Blazor.Pages
 
         protected override void OnInitialized()
         {
-            Bord.SetData();
+            //Bord.SetData();
         }
 
-        public void StartGame()
+        public async void StartGame()
         {
-            Bord.SetData();
+            await Bord.SetData();
 
             StateHasChanged();
         }
@@ -41,13 +41,13 @@ namespace FourCharacterPhrase.Blazor.Pages
             switch (cellStatus)
             {
                 case CellStatus.None:
-                    return "btn-lg btn-info";
+                    return "btn-lg btn-default";
                 case CellStatus.Selecting:
-                    return "btn-lg btn-primary";
-                case CellStatus.Completed:
-                    return "btn-lg btn-success";
-                default:
                     return "btn-lg btn-info";
+                case CellStatus.Completed:
+                    return "btn-lg btn-warning";
+                default:
+                    return "btn-lg btn-default";
             }
             
         }

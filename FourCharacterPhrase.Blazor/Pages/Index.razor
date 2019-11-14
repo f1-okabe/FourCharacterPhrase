@@ -1,19 +1,17 @@
 ﻿@page "/"
 @inherits IndexBase
 
+<input type="text" id="italicsCheck" @bind=Bord.AnswerNumber.Name />
+<button class="btn btn-danger" @onclick="() => StartGame()">スタート</button>
+<br />
+<br />
 
-
-@if (Bord == null)
+@if (Bord == null || Bord.Cells.Count == 0)
 {
-    <p><em>Loading...</em></p>
+    <p><em>名前を入力して、スタートボタンを押すとゲームを開始します</em></p>
 }
 else
 {
-    <input type="text" id="italicsCheck" @bind=Bord.AnswerNumber.Name />
-    <button class="btn btn-danger" @onclick="() => StartGame()">スタート</button>
-    <br />
-    <br />
-
     <table class="table">
         <tbody>
             @for (int i = 0; i <= 5; i++)

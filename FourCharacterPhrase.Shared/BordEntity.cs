@@ -27,13 +27,15 @@ namespace FourCharacterPhrase.Shared
             SetAllWords();
         }
 
-        public void SetData()
+        public async Task SetData()
         {
             SetWords();
             SetCells();
 
             startTime = DateTime.Now;
             AnswerNumber.Count = 0;
+
+            await WebApiService.PostRequest("AnswerNumber", AnswerNumber);
         }
 
         private void SetWords()

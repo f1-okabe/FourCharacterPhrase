@@ -42,7 +42,7 @@ namespace FourCharacterPhrase.Shared
 
             Words = new List<WordEntity>();
 
-            while (Words.Count <= 9)
+            while (Words.Count < 9)
             {
                 var randomNumber = RandomNumber(AllWords.Count);
                 if (Words.Any(m => m.Value == AllWords[randomNumber]) == false)
@@ -272,7 +272,6 @@ namespace FourCharacterPhrase.Shared
             AllWords.Add("臨機応変");
             AllWords.Add("劣勢挽回");
             AllWords.Add("老若男女");
-
         }
     }
 }

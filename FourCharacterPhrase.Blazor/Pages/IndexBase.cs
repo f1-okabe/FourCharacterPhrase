@@ -11,7 +11,6 @@ namespace FourCharacterPhrase.Blazor.Pages
 
         public string Message { get; set; } = "";
 
-        private Timer timer;
 
         protected override void OnInitialized()
         {
@@ -22,30 +21,15 @@ namespace FourCharacterPhrase.Blazor.Pages
         {
             Bord.SetData();
 
-            //SetTimmer();
-
             StateHasChanged();
         }
-
-        //private void SetTimmer()
-        //{
-        //    // Create a timer with a two second interval.
-        //    timer = new Timer(1000);
-        //    // Hook up the Elapsed event for the timer. 
-        //    timer.Elapsed += OnTimedEvent;
-        //    timer.AutoReset = true;
-        //    timer.Enabled = true;
-        //}
 
         protected void BordClick(CellEntity cell)
         {
             Bord.Click(cell);
 
-            Message = Bord.GetElapsedTime().ToString();
-
             if (Bord.IsCompleted() == true)
             {
-                //timer.Elapsed -= OnTimedEvent;
                 Message = "Completed";
             }
 
@@ -67,12 +51,6 @@ namespace FourCharacterPhrase.Blazor.Pages
             }
             
         }
-
-        //private void OnTimedEvent(Object source, ElapsedEventArgs e)
-        //{
-        //    Message = Bord.GetElapsedTime().ToString();
-        //    StateHasChanged();
-        //}
     }
 }
 

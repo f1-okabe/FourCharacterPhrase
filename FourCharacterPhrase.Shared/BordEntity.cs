@@ -34,6 +34,7 @@ namespace FourCharacterPhrase.Shared
 
             startTime = DateTime.Now;
             AnswerNumber.Count = 0;
+            AnswerNumber.ElapsedTime = 0;
 
             await WebApiService.PostRequest("AnswerNumber", AnswerNumber);
         }

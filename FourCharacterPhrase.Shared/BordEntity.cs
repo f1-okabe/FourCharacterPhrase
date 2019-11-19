@@ -183,7 +183,6 @@ namespace FourCharacterPhrase.Shared
             AllWords.Add("喜怒哀楽");
             AllWords.Add("九死一生");
             AllWords.Add("狂喜乱舞");
-            AllWords.Add("共存共栄");
             AllWords.Add("玉石混交");
             AllWords.Add("空前絶後");
             AllWords.Add("九分九厘");
@@ -197,7 +196,6 @@ namespace FourCharacterPhrase.Shared
             AllWords.Add("三寒四温");
             AllWords.Add("自画自賛");
             AllWords.Add("時期尚早");
-            AllWords.Add("自給自足");
             AllWords.Add("四苦八苦");
             AllWords.Add("試行錯誤");
             AllWords.Add("自業自得");
@@ -209,14 +207,11 @@ namespace FourCharacterPhrase.Shared
             AllWords.Add("弱肉強食");
             AllWords.Add("縦横無尽");
             AllWords.Add("終始一貫");
-            AllWords.Add("自由自在");
             AllWords.Add("十人十色");
             AllWords.Add("取捨選択");
             AllWords.Add("酒池肉林");
-            AllWords.Add("春夏秋冬");
             AllWords.Add("順風満帆");
             AllWords.Add("支離滅裂");
-            AllWords.Add("人海戦術");
             AllWords.Add("心機一転");
             AllWords.Add("新陳代謝");
             AllWords.Add("森羅万象");
@@ -232,8 +227,6 @@ namespace FourCharacterPhrase.Shared
             AllWords.Add("大胆不敵");
             AllWords.Add("大同小異");
             AllWords.Add("他力本願");
-            AllWords.Add("貪官汚吏");
-            AllWords.Add("断章取義");
             AllWords.Add("単刀直入");
             AllWords.Add("魑魅魍魎");
             AllWords.Add("猪突猛進");
@@ -242,13 +235,11 @@ namespace FourCharacterPhrase.Shared
             AllWords.Add("天下一品");
             AllWords.Add("電光石火");
             AllWords.Add("天真爛漫");
-            AllWords.Add("東西南北");
             AllWords.Add("東奔西走");
             AllWords.Add("難攻不落");
             AllWords.Add("二者択一");
             AllWords.Add("二束三文");
             AllWords.Add("日進月歩");
-            AllWords.Add("年功序列");
             AllWords.Add("拍手喝采");
             AllWords.Add("馬耳東風");
             AllWords.Add("八方美人");
@@ -261,20 +252,15 @@ namespace FourCharacterPhrase.Shared
             AllWords.Add("文武両道");
             AllWords.Add("平穏無事");
             AllWords.Add("平平凡凡");
-            AllWords.Add("暴飲暴食");
             AllWords.Add("満身創痍");
-            AllWords.Add("万目睚眥");
             AllWords.Add("三日天下");
             AllWords.Add("三日坊主");
-            AllWords.Add("無病息災");
             AllWords.Add("問答無用");
             AllWords.Add("悠悠自適");
             AllWords.Add("油断大敵");
             AllWords.Add("竜頭蛇尾");
             AllWords.Add("良妻賢母");
             AllWords.Add("臨機応変");
-            AllWords.Add("劣勢挽回");
-            AllWords.Add("老若男女");
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using FourCharacterPhrase.Shared;
 using Microsoft.AspNetCore.Components;
 using System;
+using System.Threading.Tasks;
 using System.Timers;
 
 namespace FourCharacterPhrase.Blazor.Pages
@@ -8,6 +9,8 @@ namespace FourCharacterPhrase.Blazor.Pages
     public class IndexBase : ComponentBase
     {
         public BordEntity Bord { get; set; } = new BordEntity();
+
+        public string validationMessage = "";
 
         public string Message { get; set; } = "";
 
@@ -17,7 +20,7 @@ namespace FourCharacterPhrase.Blazor.Pages
             //Bord.SetData();
         }
 
-        public async void StartGame()
+        public async Task StartGame()
         {
             await Bord.SetData();
 
@@ -50,6 +53,17 @@ namespace FourCharacterPhrase.Blazor.Pages
                     return "btn-lg btn-default";
             }
             
+        }
+
+        protected async void OnValidSubmit()
+        {
+            validationMessage = "Success!";
+            await StartGame();
+        }
+
+        protected void OnInvalidSubmit()
+        {
+            validationMessage = "Failed!";
         }
     }
 }

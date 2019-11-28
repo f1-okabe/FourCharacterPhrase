@@ -65,11 +65,13 @@ namespace FourCharacterPhrase.Shared
                 list.AddRange(item.GetOneCharacter());
             }
 
+            int i = 1;
             while (list.Count > 0)
             {
                 var randomNumber = RandomNumber(list.Count);
-                Cells.Add(new CellEntity() { Value = list[randomNumber] });
+                Cells.Add(new CellEntity() { Value = list[randomNumber], No = i, Name = AnswerNumber.Name });
                 list.Remove(list[randomNumber]);
+                i++;
             }
         }
 
@@ -81,6 +83,8 @@ namespace FourCharacterPhrase.Shared
 
         public async void Click(CellEntity cell)
         {
+            Console.WriteLine(" WebApiService:終了");
+
             if (IsFourSelecting() == true && cell.Status != CellStatus.Selecting) return;
 
             cell.ChangeStatus();
@@ -95,8 +99,14 @@ namespace FourCharacterPhrase.Shared
 
             AnswerNumber.Count += 1;
             AnswerNumber.ElapsedTime = GetElapsedTime();
-            var a = await WebApiService.PostRequest("AnswerNumber", AnswerNumber);
-            Console.WriteLine(JsonConvert.SerializeObject(a));
+
+            await WebApiService.PostRequest("AnswerNumber", AnswerNumber);
+            //Console.WriteLine(JsonConvert.SerializeObject(a));
+        }
+
+        public async void PostCells()
+        {
+           await WebApiService.PostRequest("Cells", Cells);
         }
 
         public int GetElapsedTime()

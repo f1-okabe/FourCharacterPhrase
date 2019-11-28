@@ -10,6 +10,7 @@ namespace FourCharacterPhrase.Server
     public class AppDbContext : DbContext
     {
         public DbSet<AnswerNumberEntity> AnswerNumberEntitys { get; set; }
+        public DbSet<CellEntity> CellEntitys { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -19,6 +20,7 @@ namespace FourCharacterPhrase.Server
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AnswerNumberEntity>().ToTable("D_AnswerNumber").HasKey(c => new { c.Name });
+            modelBuilder.Entity<CellEntity>().ToTable("D_Cell").HasKey(c => new { c.Name, c.No });
         }
     }
 }

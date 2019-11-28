@@ -11,8 +11,8 @@ namespace FourCharacterPhrase.Shared
     public static class WebApiService
     {
         private static HttpClient Http = new HttpClient();
-        private const string baseURL = "https://fourcharacterphraseserver.azurewebsites.net/";
-        //private const string baseURL = "http://localhost:60111/";
+        //private const string baseURL = "https://fourcharacterphraseserver.azurewebsites.net/";
+        private const string baseURL = "http://localhost:50952/";
 
         public static async Task<object> PostRequest<T>(string serviceName, T sendObject)
         {
@@ -29,7 +29,8 @@ namespace FourCharacterPhrase.Shared
             response.EnsureSuccessStatusCode(); //will throw an exception if not successful
 
             var responseContent = await response.Content.ReadAsStringAsync();
-            return JObject.Parse(responseContent);
+            return "";
+            //return JObject.Parse(responseContent);
         }
 
         public static async Task<T> GetRequest<T,U>(string serviceName, U sendObject)

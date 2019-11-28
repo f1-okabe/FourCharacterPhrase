@@ -6,6 +6,10 @@ namespace FourCharacterPhrase.Shared
 {
     public class CellEntity
     {
+        public string Name { get; set; }
+
+        public int No { get; set; }
+
         public char Value { get; set; }
 
         public CellStatus Status { get; set; } = CellStatus.None;

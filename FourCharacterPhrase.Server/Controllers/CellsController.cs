@@ -19,7 +19,7 @@ namespace FourCharacterPhrase.Server.Controllers
             var daoD_Cell = new DaoD_Cell();
 
             var daoD_AnswerNumber = new DaoD_AnswerNumber();
-            var answerNumber = daoD_AnswerNumber.GetAnswerNumberList().OrderBy(m => m.ElapsedTime).FirstOrDefault();
+            var answerNumber = daoD_AnswerNumber.GetAnswerNumberList().OrderBy(m => m.Count).ThenByDescending(m => m.ElapsedTime).FirstOrDefault();
 
             return daoD_Cell.GetCellList(answerNumber.Name).OrderBy(m => m.No).ToList();
         }

@@ -12,6 +12,8 @@ namespace FourCharacterPhrase.Blazor.Pages
     {
         public List<CellEntity> Cells { get; set; } = new List<CellEntity>();
 
+        public string Name { get; set; } = "";
+
         private Timer timer;
 
         protected override void OnInitialized()
@@ -32,7 +34,7 @@ namespace FourCharacterPhrase.Blazor.Pages
 
         private async void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
-            Cells = await WebApiService.GetRequest<List<CellEntity>, string>("Cells", "");
+            Cells = await WebApiService.GetRequest<List<CellEntity>, string>($"Cells?name={Name}");
 
             Console.WriteLine(Cells.First().Value);
             StateHasChanged();

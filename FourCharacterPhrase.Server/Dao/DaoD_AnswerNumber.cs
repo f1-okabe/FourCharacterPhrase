@@ -23,6 +23,7 @@ namespace FourCharacterPhrase.Server.Dao
         public void Save(AnswerNumberEntity data)
         {
             var saveBeforeData = GetAnswerNumber(data.Name);
+
             EnmEditMode editMode;
 
             if (saveBeforeData == null)
@@ -32,6 +33,10 @@ namespace FourCharacterPhrase.Server.Dao
             else
             {
                 editMode = EnmEditMode.Update;
+
+                if (data.Count < saveBeforeData.Count) return;
+
+                if (data.Count == saveBeforeData.Count && data.ElapsedTime > saveBeforeData.ElapsedTime) return;
             }
 
             using (AppDbContext contexForSave = DB.CreateAppDbContextForSave(true))

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Net.Http.Headers;
 
 namespace FourCharacterPhrase.Server
 {
@@ -25,8 +26,8 @@ namespace FourCharacterPhrase.Server
                 options.AddPolicy(MyAllowSpecificOrigins,
                 builder =>
                 {
-                    //builder.WithOrigins("*","http://localhost:59066", "http://localhost:55771")
-                    builder.WithOrigins()
+                    builder.WithOrigins("*","http://localhost:59066", "https://fourcharacterphraseblazor.azurewebsites.net")
+                    //builder.WithOrigins()
                            .AllowAnyOrigin()
                            .AllowAnyMethod()
                            .AllowAnyHeader();
@@ -56,6 +57,12 @@ namespace FourCharacterPhrase.Server
             {
                 endpoints.MapControllers();
             });
+
+            //app.UseCors(policy =>
+            //    policy.WithOrigins("https://fourcharacterphraseblazor.azurewebsites.net", "http://localhost:59066")
+            //    .AllowAnyMethod()
+            //    .WithHeaders(HeaderNames.ContentType, HeaderNames.Authorization)
+            //    .AllowCredentials());
         }
     }
 }

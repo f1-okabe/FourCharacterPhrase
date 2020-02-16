@@ -14,14 +14,11 @@ namespace FourCharacterPhrase.Server.Controllers
     public class CellsController : ControllerBase
     {
         [HttpGet]
-        public List<CellEntity> Get()
+        public List<CellEntity> Get(string name)
         {
             var daoD_Cell = new DaoD_Cell();
 
-            var daoD_AnswerNumber = new DaoD_AnswerNumber();
-            var answerNumber = daoD_AnswerNumber.GetAnswerNumberList().OrderBy(m => m.Count).ThenByDescending(m => m.ElapsedTime).FirstOrDefault();
-
-            return daoD_Cell.GetCellList(answerNumber.Name).OrderBy(m => m.No).ToList();
+            return daoD_Cell.GetCellList(name).OrderBy(m => m.No).ToList();
         }
 
         [HttpPost]

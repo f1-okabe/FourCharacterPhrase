@@ -37,7 +37,7 @@ namespace FourCharacterPhrase.Blazor.Pages
 
         private async void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
-            AnswerNumberEntitys = await WebApiService.GetRequest<List<AnswerNumberEntity>, string>("AnswerNumber", "");
+            AnswerNumberEntitys = await WebApiService.GetRequest<List<AnswerNumberEntity>, string>("AnswerNumber");
             StateHasChanged();
         }
     }

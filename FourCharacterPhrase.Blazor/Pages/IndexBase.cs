@@ -46,13 +46,13 @@ namespace FourCharacterPhrase.Blazor.Pages
             switch (cellStatus)
             {
                 case CellStatus.None:
-                    return "btn-lg btn-default";
+                    return "btn btn-default";
                 case CellStatus.Selecting:
-                    return "btn-lg btn-info";
+                    return "btn btn-info";
                 case CellStatus.Completed:
-                    return "btn-lg btn-warning";
+                    return "btn btn-warning";
                 default:
-                    return "btn-lg btn-default";
+                    return "btn btn-default";
             }
             
         }

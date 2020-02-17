@@ -27,7 +27,7 @@
                             @for (int j = 0; j <= 5; j++)
                             {
                                 var cell = Bord.Cells[i * 6 + j];
-                                <td><button type ="button" class=@GetCss(cell.Status) @onclick="() => BordClick(cell)">@cell.Value</button></td>
+                                <td class="padding5px"><button type ="button" class=@GetCss(cell.Status) @onclick="() => BordClick(cell)">@cell.Value</button></td>
                             }
                         </tr>
                     }
